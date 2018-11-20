@@ -5,4 +5,7 @@ class User < ApplicationRecord
 
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
+
+  store :settings, accessors: [:weekly_email, :monthly_newsletter], coder: JSON
+  
 end

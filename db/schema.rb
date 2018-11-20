@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_112426) do
+ActiveRecord::Schema.define(version: 2018_11_20_023328) do
 
   create_table "announcements", force: :cascade do |t|
     t.datetime "published_at"
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 2018_11_19_112426) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "settings"
+    t.json "preferences"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
