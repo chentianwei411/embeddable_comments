@@ -4,6 +4,17 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :masquerade_user!
 
+  before_action :set_referral_cookie
+
+  def set_referral_cookie
+    if params[:ref]
+      cookies[:referral_code] = {
+        value: params[:ref],
+        expires: 30.days.from_now
+      }
+    end
+  end
+
   protected
 
     def configure_permitted_parameters
