@@ -1,3 +1,32 @@
-<h1>Welcome to Jumpstart!</h1>
-<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
 <%= javascript_pack_tag "embed"%>
+
+<hr>
+
+<%= search_form_for @q, url: root_path do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont%>
+  <%= f.submit %>
+<% end %>
+
+<hr>
+<h3>Movies</h3>
+
+<table class="table table-border table-hover">
+  <thead>
+    <th>
+      <%= sort_link(@q, :name,"Movie name", default_order: :desc) do%>
+        <strong>Movie Name</strong>
+      <% end %>
+    </th>
+    <th>url</th>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.name%></td>
+        <td><%= movie_path(movie) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

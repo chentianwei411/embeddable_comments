@@ -17,5 +17,6 @@
 //= require data-confirm-modal
 //= require local-time
 //= require activestorage
+//= require jquery.easy-autocomplete
 //= require turbolinks
 //= require_tree .

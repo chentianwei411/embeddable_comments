@@ -29,6 +29,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get :search, controller: :home
+  # get :root, controller: :home
+  resources :movies
+  resources :directors
 
   root to: 'home#index'
 
