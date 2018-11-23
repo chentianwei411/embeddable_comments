@@ -30,5 +30,7 @@ document.addEventListener("turbolinks:load", function() {
     }
   }
 
+  requestDelay: 500
+  
   $input.easyAutocomplete(options)
 })
