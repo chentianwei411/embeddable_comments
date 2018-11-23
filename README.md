@@ -1,24 +1,12 @@
-# README
+# 嵌套评论
+  每个分支是不同的功能。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* master分支是是一个vue.js做一个嵌套评论
 
-Things you may want to cover:
+* autoquery分支是关于使用ransack搜索和JQuery plugin（autoComplete）
 
-* Ruby version
+* Referal分支是一个推广链接的功能：用到了cookie。和user表格的自我关联。
 
-* System dependencies
+* activestore分支: 使用了ActiveRecord::Store模块来储存user的偏好设置。
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 。。。
