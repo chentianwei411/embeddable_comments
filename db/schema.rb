@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_112426) do
+ActiveRecord::Schema.define(version: 2018_11_23_115233) do
 
   create_table "announcements", force: :cascade do |t|
     t.datetime "published_at"
@@ -33,10 +33,23 @@ ActiveRecord::Schema.define(version: 2018_11_19_112426) do
     t.index ["discussion_id"], name: "index_comments_on_discussion_id"
   end
 
+  create_table "directors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "discussions", force: :cascade do |t|
     t.string "url"
     t.string "title"
     t.integer "comments_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "episodes", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,6 +64,14 @@ ActiveRecord::Schema.define(version: 2018_11_19_112426) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "name"
+    t.integer "director_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["director_id"], name: "index_movies_on_director_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -89,6 +110,11 @@ ActiveRecord::Schema.define(version: 2018_11_19_112426) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "settings"
+    t.json "preferences"
+    t.string "referral_code"
+    t.integer "referred_by_id"
+    t.datetime "referral_completed_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

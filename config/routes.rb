@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :episodes
 
   root to: 'home#index'
 

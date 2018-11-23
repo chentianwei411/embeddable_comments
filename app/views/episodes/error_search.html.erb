@@ -1,0 +1,11 @@
+<h3>很抱歉，您要访问的页面不存在！</h3>
+
+<% if @episodes.any? %>
+  <% @episodes.each do |e| %>
+    <div>
+      <%= link_to e.name, episode_path(e)%>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to "查看所有的章节！", episodes_path %>
+<% end %>
