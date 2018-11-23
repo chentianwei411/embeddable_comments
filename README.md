@@ -9,4 +9,4 @@
 
 * activestore分支: 使用了ActiveRecord::Store模块来储存user的偏好设置。
 
-* 。。。
+* rescue_from分支: 使用rescue_from方法对错误的搜索进给出提示页面和处理办法。
